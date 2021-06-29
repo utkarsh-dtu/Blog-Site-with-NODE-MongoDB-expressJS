@@ -1,0 +1,98 @@
+doctype html
+head
+  // Required meta tags
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  // Bootstrap CSS
+  link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css' integrity='sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk' crossorigin='anonymous')
+  title Hello, world!
+nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
+  a.navbar-brand(href='#') uBlogger
+  button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+    span.navbar-toggler-icon
+  #navbarSupportedContent.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto
+      li.nav-item.active
+        a.nav-link(href='/BlogPage')
+          | Blogs 
+          span.sr-only (current)
+      li.nav-item
+        a.nav-link(href='/BlogPage/new') New Blog
+    form.form-inline.my-2.my-lg-0
+      input.form-control.mr-sm-2(type='search' placeholder='Search' aria-label='Search')
+      button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+
+each BlogP in BlogItems
+
+  .row.featurette.my-4.border.border-secondary.rounded.mx-4
+    .col-md-7
+      h2.featurette-heading #{BlogP.title}
+        
+        //- span.text-muted &rsquo;
+      p.lead
+        each n , i in BlogP.body
+          span #{n}
+          if i > 500
+            -break
+        //- a.mx-3.btn.btn-primary(href = "/BlogPage/" + BlogP.id) Continue reading
+        //- a.btn.btn-primary.mx-3(data-toggle='collapse'   role='button' aria-expanded='false' aria-controls='collapseExample' href="/BlogPage/" + BlogP.id) Continue Reading
+    
+        
+    .col-md-5.my-4
+      img.mb-3.bd-placeholder-img.bd-placeholder-img-lg.featurette-image.img-fluid.mx-auto(src='https://source.unsplash.com/500x500/?nature,water' alt='' width='350' height='350')
+
+    a.mx-3.btn.btn-primary.my-3(href = "/BlogPage/" + BlogP.id) Continue reading
+    a.mx-3.btn.btn-primary.my-3(href = "/BlogPage/"+BlogP.id + '/edit') Update
+    form(action = '/BlogPage/' + BlogP.id + '?_method=DELETE' method = 'POST')
+      button.mx-3.btn.btn-primary.my-3 Delete
+
+  
+    //- svg.bd-placeholder-img.bd-placeholder-img-lg.featurette-image.img-fluid.mx-auto(width='500' height='500' xmlns='http://www.w3.org/2000/svg' preserveaspectratio='xMidYMid slice' focusable='false' role='img' aria-label='Placeholder: 500x500')
+    //-   title Placeholder
+    //-   rect(width='100%' height='100%' fill='#eee')
+    //-   text(x='50%' y='50%' fill='#aaa' dy='.3em') 500x500
+
+
+
+
+
+
+
+  //- .row.featurette.my-6.d-flex
+  //- .col-md-7.order-md-2.my-4
+  //-   h2.featurette-heading #{BlogP.title}
+    
+  //-     span.text-muted 
+  //-   p.lead 
+  //-     each n , i in BlogP.body
+  //-       span #{n}
+  //-       if i > 500
+  //-         -break
+  //- a.mx-3.btn.btn-primary(href = "/BlogPage/" + BlogP.id) Continue reading
+  //- //- a.btn.btn-primary.mx-3(data-toggle='collapse'   role='button' aria-expanded='false' aria-controls='collapseExample' href="/BlogPage/" + BlogP.id) Continue Reading
+   
+
+      
+  //- .col-md-5.order-md-1
+  //-   img.my-3.bd-placeholder-img.bd-placeholder-img-lg.featurette-image.img-fluid.mx-auto(src='https://source.unsplash.com/1600x900/?nature,water' alt='' width='500' height='500')
+  
+
+
+
+
+
+
+  //- .col.p-4.d-flex.flex-column.position-static
+  //-   strong.d-inline-block.mb-2.text-primary blogitem
+  //-   h3.mb-0 #{BlogP.title}
+  //-   .mb-1.text-muted Nov 12
+  //-   p.card-text.mb-auto #{BlogP.body}
+
+  //-   a(href = '/BlogPage/'+ BlogP.id) Continue reading
+      
+    //- a.stretched-link(href='/BlogPage/'+BlogP.id) Continue reading
+  // Optional JavaScript
+  // jQuery first, then Popper.js, then Bootstrap JS
+  script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js' integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' crossorigin='anonymous')
+  script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js' integrity='sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo' crossorigin='anonymous')
+  script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js' integrity='sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI' crossorigin='anonymous')
